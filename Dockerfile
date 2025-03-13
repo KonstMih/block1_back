@@ -14,7 +14,8 @@ RUN go mod download
 COPY . .
 
 # Build
-RUN CGO_ENABLED=0 GOOS=linux go build -o /block1_back
+#RUN CGO_ENABLED=0 GOOS=linux go build -o /block1_back
+RUN go build -o block1_back main.go 
 
 # Optional:
 # To bind to a TCP port, runtime parameters must be supplied to the docker command.
@@ -24,4 +25,4 @@ RUN CGO_ENABLED=0 GOOS=linux go build -o /block1_back
 EXPOSE 9090
 
 # Run
-CMD ["/block1_back"]
+CMD ["./block1_back"]
